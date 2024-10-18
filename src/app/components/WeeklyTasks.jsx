@@ -84,30 +84,33 @@ const Todo = () => {
           </div>
         )}
       </div>
-
-      <form onSubmit={addTask}>
-        <div className='flex justify-between items-center p-3 bg-gray-200 dark:bg-gray-800'>
-          <input
-            type="text"
-            value={task}
-            onChange={(e) => setTask(e.target.value)}
-            placeholder="What needs to be done this week?"
-            className='border-2 w-7/12 p-2 rounded-md dark:bg-gray-700 dark:border-gray-600'
-          />
-          <input
-            type="date"
-            value={time}
-            onChange={(e) => setTime(e.target.value)}
-            required
-            className='w-3/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-indigo-600'
-          />
-          {task && time && (
-            <button className='bg-indigo-600 text-white p-2 rounded-md' onClick={addTask}>
-              Add 
-            </button>
-          )}
-        </div>
-      </form>
+    
+     <form onSubmit={addTask}>
+            <div className='flex justify-between max-lg:flex-col items-center p-3 bg-gray-200 dark:bg-gray-800'>
+              <input
+                type="text"
+                value={task}
+                onChange={(e) => setTask(e.target.value)}
+                placeholder="What needs to be done this week?"
+                className='border-2 w-7/12 p-2 rounded-md dark:bg-gray-700 dark:border-gray-600 max-lg:w-full'
+              />
+              <div className='flex justify-evenly max-lg:justify-between max-lg:w-full max-lg:mt-4'>
+    
+              <input
+                type="date"
+                value={time}
+                onChange={(e) => setTime(e.target.value)}
+                required
+                className='w-8/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-indigo-600'
+                />
+              {task && time && (
+                <button className='bg-indigo-600 text-white py-2 px-3 rounded-md' onClick={addTask}>
+                  Add 
+                </button>
+              )}
+              </div>
+            </div>
+          </form>
 
       {isEditing && (
         <form onSubmit={updateTask} className='p-3 bg-gray-200 w-full dark:bg-gray-800  '>
