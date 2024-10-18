@@ -89,7 +89,7 @@ const Todos = () => {
                 type="text"
                 value={task}
                 onChange={(e) => setTask(e.target.value)}
-                placeholder="What needs to be done this week?"
+                placeholder="What needs to be done today?"
                 className='border-2 w-7/12 p-2 rounded-md dark:bg-gray-700 dark:border-gray-600 max-lg:w-full'
               />
               <div className='flex justify-evenly max-lg:justify-between max-lg:w-full max-lg:mt-4'>
