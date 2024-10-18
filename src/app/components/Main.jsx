@@ -10,7 +10,7 @@ const Main = () => {
     return ( 
     
     <div className=" w-full min-h-[calc(100vh-4rem)] pb-6  flex justify-center dark:bg-gray-900 ">
-        <div className="w-10/12 mt-16 flex  justify-between max-lg:flex-col ">
+        <div className="w-10/12 mt-16 flex  justify-between max-lg:flex-col max-lg:w-11/12 ">
 
            
             <Todo />
