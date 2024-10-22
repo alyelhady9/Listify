@@ -113,28 +113,30 @@ const Todo = () => {
           </form>
 
       {isEditing && (
-        <form onSubmit={updateTask} className='p-3 bg-gray-200 w-full dark:bg-gray-800  '>
-          
-          <div className='flex justify-between items-center'>
+        <form onSubmit={updateTask} className='p-3 bg-gray-200 w-full  border-indigo-600 border-4 dark:bg-gray-800  '>
+          <div className='flex justify-between items-center mb-6'> 
+            <p className='text-lg font-semibold text-indigo-500'>Edit task</p>
+            <button className=' ml-2 w-10 h-10 bg-red-600 text-white text-2xl rounded-md' onClick={() => setIsEditing(false)}>x</button>
+          </div>
+          <div className='flex justify-between gap-4 items-center '>
 
-          <input
-            type="text"
-            value={currentTask}
-            onChange={(e) => setCurrentTask(e.target.value)}
-            placeholder="Edit task"
-            className='border-2 w-7/12 p-2 rounded-md dark:bg-gray-700 dark:border-gray-600'
-            />
-          <input
-            type="date"
-            value={currentTime}
-            onChange={(e) => setCurrentTime(e.target.value)}
-            placeholder='Edit time'
-            className='w-3/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-indigo-600'
-            />
+            <input
+              type="text"
+              value={currentTask}
+              onChange={(e) => setCurrentTask(e.target.value)}
+              placeholder="Edit task"
+              className='border-2 w-8/12 p-2 rounded-md dark:bg-gray-700 dark:border-gray-600'
+              />
+            <input
+              type="date"
+              value={currentTime}
+              onChange={(e) => setCurrentTime(e.target.value)}
+              placeholder='Edit time'
+              className='w-4/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-indigo-600'
+              />
           </div>
           <div className='flex justify-between items-center mt-4 w-full'>
-            <button type='submit' className='bg-indigo-600 text-white  p-2 rounded-md'>Update</button>
-            <button className='ml-2 w-10 h-10 bg-red-600 text-white text-2xl rounded-md' onClick={() => setIsEditing(false)}>x</button>
+            <button type='submit' className='bg-indigo-600 m-auto text-white hover:bg-indigo-700  p-2 rounded-md'>Update</button>
           </div>
         </form>
       )}
@@ -144,16 +146,19 @@ const Todo = () => {
           <p className='text-center flex items-center h-full justify-center font-bold select-none text-indigo-600'>No tasks added yet</p>
         ) : tasks.map(({ id, task, time, completed }) => (
           <li key={id} className='dark:bg-gray-700 flex w-full justify-between items-center p-2 rounded-md my-2 bg-white'>
-            <div className='flex items-center'>
-              <span className='mr-2 rounded-full' onClick={() => toggleTaskCompletion(id)}>
-                {completed ? <FaCheckCircle className='text-green-600' /> : <FaRegCircle />}
-              </span>
-              <span className='ml-2'>{task}</span>
-            </div>
-            <div className='flex items-center'>
-              <div className='mr-4'>
-                <span className='text-gray-500 dark:text-gray-300'>{time}</span>
+            <div className=' w-10/12 flex max-md:block justify-between pr-5'>
+              <div className='flex items-center'>
+
+                <span className='mr-2 rounded-full' onClick={() => toggleTaskCompletion(id)}>
+                  {completed ? <FaCheckCircle className='text-green-600' /> : <FaRegCircle />}
+                </span>
+                <span className='ml-2'>{task}</span>
               </div>
+              <div className='mr-4'>
+                <span className='text-gray-500 text-sm mt-3 dark:text-gray-300'>{time}</span>
+              </div>
+            </div>
+            <div className='flex items-center justify-end w-2/12 '>
               <button className='bg-red-600 text-white p-2 rounded-md font-bold text-lg hover:bg-red-800' onClick={() => deleteTask(id)}>
                 <GoTrash />
               </button>
