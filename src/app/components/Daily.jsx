@@ -111,30 +111,32 @@ const Todos = () => {
           </form>
 
       {isEditing && (
-        <form onSubmit={updateTask} className='p-3 bg-gray-200 w-full dark:bg-gray-800  '>
-          
-          <div className='flex justify-between items-center'>
+        <form onSubmit={updateTask} className='p-3 bg-gray-200 w-full  border-indigo-600 border-4 dark:bg-gray-800  '>
+        <div className='flex justify-between items-center mb-6'> 
+          <p className='text-lg font-semibold text-indigo-500'>Edit task</p>
+          <button className=' ml-2 w-10 h-10 bg-red-600 text-white text-2xl rounded-md' onClick={() => setIsEditing(false)}>x</button>
+        </div>
+        <div className='flex gap-4 justify-between  items-center '>
 
           <input
             type="text"
             value={currentTask}
             onChange={(e) => setCurrentTask(e.target.value)}
             placeholder="Edit task"
-            className='border-2 w-7/12 p-2 rounded-md dark:bg-gray-700 dark:border-gray-600'
+            className='border-2 w-8/12 p-2 rounded-md dark:bg-gray-700 dark:border-gray-600'
             />
           <input
             type="time"
             value={currentTime}
             onChange={(e) => setCurrentTime(e.target.value)}
             placeholder='Edit time'
-            className='w-3/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-indigo-600'
+            className='w-4/12 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-indigo-600'
             />
-          </div>
-          <div className='flex justify-between items-center mt-4 w-full'>
-            <button type='submit' className='bg-indigo-600 text-white  p-2 rounded-md'>Update</button>
-            <button className='ml-2 w-10 h-10 bg-red-600 text-white text-2xl rounded-md' onClick={() => setIsEditing(false)}>x</button>
-          </div>
-        </form>
+        </div>
+        <div className='flex justify-between items-center mt-4 w-full'>
+          <button type='submit' className='bg-indigo-600 m-auto text-white hover:bg-indigo-700  p-2 rounded-md'>Update</button>
+        </div>
+      </form>
       )}
 
       <ul className='dark:bg-gray-800 list-none p-3 min-h-24 bg-gray-200 mt-4'>
