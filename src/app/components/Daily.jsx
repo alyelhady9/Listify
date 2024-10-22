@@ -95,7 +95,7 @@ const Todos = () => {
               <div className='flex justify-evenly max-lg:justify-between max-lg:w-full max-lg:mt-4'>
     
               <input
-                type="date"
+                type="time"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
                 required
